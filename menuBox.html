@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Turret+Road:700|Vibes&display=swap" rel="stylesheet">
+    <title>Menu coming up</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+     src="https://code.jquery.com/jquery-3.4.1.min.js"
+     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+     crossorigin="anonymous"></script>
+     <style>
+*{
+    box-sizing: border-box;
+}
+html{
+    margin:0;
+    padding:0;
+    
+}
+body{
+    margin:0;
+    background-image: url("images/menu-wallpaper.jpg");
+    background-size: 100%;
+    background-attachment: fixed;
+    text-align: left;
+}
+​
+a,
+a:hover,
+a:focus{
+  color: white;
+  text-decoration: none;
+}
+​
+@media only screen and (max-width: 500px) {
+  .nav-link {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .footer-scale {
+    font-size: 15px;
+  }
+}
+header, footer {
+   display: flex;
+   background-color: rgba(0,0,0,0.5);
+   width: 100%;
+   height: 6vh;
+   margin: 0;
+   padding: 10px;
+   color: white;
+   font-family: 'Turret Road', cursive;
+   font-size: 33px;
+   justify-items: space-around;
+   
+}
+
+a, a:hover, a:focus {
+    color:white;
+    text-decoration: none;
+}
+​
+header
+{
+   position:fixed;
+   margin:0;
+   padding: 0;
+   top:0;
+   width:100%;
+   z-index: 5;
+}footer
+{
+  padding:10px 0px 0px 10px,0;
+   position:fixed;
+   bottom:0;
+   z-index: 5;
+}.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+   display: inline-flex;
+   padding: 0px 9px;
+   color: white;
+   text-decoration: none;
+}
+menu{
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    padding-top:40px;
+    padding-bottom:30px;
+    padding-right:30px;
+    margin-left:20px;
+    margin-right:250px;
+}
+@media only screen and (min-width: 501px){
+    menu{
+        margin-right:300px;
+    }
+}
+​
+@media only screen and (max-width: 500px){
+    #image{
+        width:150px;
+        height:auto;
+    }
+    body{
+        margin-top:30px;
+    }
+    menu{
+        margin-top:40px;
+        margin-right:30px;
+        padding-left:10px;
+    }
+}
+@media only screen and (max-width: 400px){
+   body{
+       margin-top:30px;
+   }
+   menu{
+       margin:0;
+       padding:20px;
+   }
+   header{
+       padding:0;
+   }
+}
+
+.ingredients {
+  width: 40%;
+  height: auto;
+  font-size: 35px;
+}
+​
+     </style>
+<body>
+        <header>
+                <nav class="nav">
+                        <a class="nav-link active" href="best_recipe.html">Home</a>
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                        <a class="nav-link" href="menu.html">Menu</a>
+                      </nav>     
+        </header>
+
+                      <menu class="menu">
+                        <ul id ="boxbox"></ul>
+                          
+                      </menu>
+    
+    <script>
+        let boxbox = document.getElementById("boxbox");
+         $.ajax({
+      type: "GET",
+      url: "https://www.themealdb.com/api/json/v1/1/search.php?s",
+      dataType: "JSON",
+      success: function(response){
+        console.log(response);
+      food(response);
+      },
+      error: function(error){
+        console.log("Error: " + error);
+      }
+     });
+     
+
+     function food(argument){
+         let menu = argument.meals.map(function(object){
+
+
+          var comIng = [];
+          m = object.strMeasure;
+          im = object.strIngredient;
+          
+          comIng.push(object.strMeasure1 + object.strIngredient1);
+          comIng.push(object.strMeasure2 + object.strIngredient2);
+          comIng.push(object.strMeasure3 + object.strIngredient3);
+          comIng.push(object.strMeasure4 + object.strIngredient4);
+          comIng.push(object.strMeasure5 + object.strIngredient5);
+          comIng.push(object.strMeasure6 + object.strIngredient6);
+          comIng.push(object.strMeasure7 + object.strIngredient7);
+          comIng.push(object.strMeasure8 + object.strIngredient8);
+          comIng.push(object.strMeasure9 + object.strIngredient9);
+          comIng.push(object.strMeasure10 + object.strIngredient10);
+          comIng.push(object.strMeasure11+ object.strIngredient11);
+          comIng.push(object.strMeasure12+ object.strIngredient12);
+          comIng.push(object.strMeasure13 + object.strIngredient13);
+          comIng.push(object.strMeasure14 + object.strIngredient14);
+          comIng.push(object.strMeasure15 + object.strIngredient15);
+          comIng.push(object.strMeasure16 + object.strIngredient16);
+          comIng.push(object.strMeasure17 + object.strIngredient17);
+          comIng.push(object.strMeasure18 + object.strIngredient18);
+          comIng.push(object.strMeasure19 + object.strIngredient19);
+          comIng.push(object.strMeasure20 + object.strIngredient20);
+          
+          
+
+          
+             return `<div style="background-color: rgb(68, 116, 148); width: 75%; height: 30% margin-bottom: 40px;">
+                    <li style= " color: white; margin-bottom: 40px; text-align:center; padding: 10px;">
+                    <h1 style = "font-size: 58px"> ${object.strMeal} </h1>
+                    <img style = "margin-bottom: 30px;" src = ${object.strMealThumb}></img>
+                    <div class = "ingredients ">${comIng} </div>
+                    <div style = "font-size: 28px; margin: 0px 40px 90px 40px; padding: 20px;"> ${object.strInstructions}</div>
+                    </div>`})
+     boxbox.innerHTML = menu.join('');}
+        </script>
+        <footer class="footer-scale"><a href="https://www.digitalcrafts.com/">Contact Us</a></footer>
+</body>
+</html>

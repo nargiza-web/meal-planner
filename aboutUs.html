@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Turret+Road:700|Vibes&display=swap" rel="stylesheet">
+  <title>About Us</title>
+  <style> 
+body{
+    margin-top: 0 !important;
+    margin-left: 0 !important;
+}
+
+a,
+a:hover,
+a:focus{
+  color: white;
+  text-decoration: none;
+}
+
+.content{
+  /* margin: 90px 198px !important; */
+  margin: 90px 198px;
+  height: 380px;
+  
+}
+
+.container {
+  background: url(https://static.wixstatic.com/media/2ea7e0_cc0ac8333a304c96876114dad5efb742~mv2.jpg);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  clip: rect(0, auto, auto, 0);
+}
+.container:nth-child(1) {
+  top: 0;
+  z-index: 1;
+}
+
+.container:nth-child(2) {
+  top: 100vh;
+  z-index: 2;
+}
+.container:nth-child(2) .inner-container {
+  background: url(https://images-prod.healthline.com/hlcmsresource/images/AN_images/healthy-low-carb-meals-1296x728-meatza.jpg);
+  background-size: cover;
+}.container:nth-child(3) {
+  top: 200vh;
+  z-index: 3;
+}
+.container:nth-child(3) .inner-container {
+  background: url(https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500);
+  background-size: cover;
+}.inner-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  transition: 0.5s;
+}
+.inner-container:not(:hover) {
+  transform: perspective(100vh);
+}.content {
+  background: rgba(0, 0, 0, 0.5);
+  margin: 200px 20%;
+  padding: 10%;
+}h1 {
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.8em;
+}p {
+  color: white;
+  margin: 10px 0;
+  line-height: 1.4em;
+}
+.picture {
+  z-index: 99;
+  width: 150px;
+  height: auto;
+  border-radius: 21%;
+}
+.location{
+  display:flex;
+}
+
+@media only screen and (max-width: 600px) {
+ h1 {
+   font-size: 18px;
+ }
+}
+@media only screen and (max-width: 400px) {
+ h1 {
+   font-size: 15px;
+ }
+}
+/* @media only screen and (max-width: 400px) {
+ .inner-container {
+   padding:0;
+   margin:100;
+ } */
+/* } */
+@media only screen and (max-width: 500px) {
+  .nav-link {
+    font-size: 15px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .footer-scale {
+    font-size: 15px;
+    padding:5px;
+    margin:0;
+  }
+}
+header, footer {
+   display: flex;
+   background-color: rgba(0,0,0,0.5);
+   width: 100%;
+   height: 6vh;
+   margin: 0;
+   padding: 10px;
+   color: white;
+   font-family: 'Turret Road', cursive;
+   font-size: 33px;
+   justify-items: space-around;
+   z-index: 4;
+}
+header
+{
+   position:fixed;
+   top:0;
+}
+footer
+{
+   position:fixed;
+   bottom:0;
+}
+.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+   display: inline-flex;
+   padding: 0px 9px;
+   color: white;
+   text-decoration: none;
+}
+@media only screen and (min-width: 501px){
+  .content{
+    margin-top:150px;
+    margin-bottom:200px;
+    padding:30px;
+      }
+  p{
+    font-size:15px;
+    padding:0px;
+  }
+  h1{
+    font-size:18px;
+  }
+  
+}
+@media only screen and (max-width: 680px){
+  .content{
+    margin-top:100px;
+    margin-bottom:400px;
+    /* margin-left:20%;
+    margin-right:20%; */
+    padding:10px;
+      }
+  p{
+    font-size:11px;
+    padding:0px;
+  }
+  /* h1{
+    font-size:15px;
+  } */
+  .picture{
+    width:100px;
+    height:auto;
+  }
+  footer{
+    font-size:15px;
+  }
+  .nav-link {
+    font-size: 15px;
+  }
+  header{
+    padding:10px;
+
+  }
+}
+</style>
+</head>
+<body>
+        <header>
+                <nav class="nav">
+                        <a class="nav-link active" href="best_recipe.html">Home</a>
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                        <a class="nav-link" href="menuBox.html">Menu</a>
+                      </nav>
+           </header>
+
+      <div class="container">                <div class="inner-container">
+                  <div></div>
+                  <div class="content">
+                      <div class="location">
+                          <img class="picture" src="images/Steve-Dismuke-Profile-Image.jpg"/>
+                        </div>
+                          <h1>Steven Dismuke</h1>
+                      <p> I'm Steven Dismuke and I'm a web developer. My primary contribution to
+                        this application was the intrgration of the api into our site, mobile responsive
+                        aspects, and general CSS layout. But I also helped out on the other aspects
+                        as needed. I'm excited to have completed our first group project, and proud of my
+                        team and the work we have accomplished.
+                      </p>
+                   </div>
+               </div>
+            </div>
+          </div>
+          <div class="container">
+              <div class="inner-container">
+                  <div class="content">
+                        <div class="location">
+                                <img class="picture" src="images/nargiza.png"/>
+                              </div>
+                  <h1>Nargiza Ozek</h1>
+                  <p>I am a Full Stack Web Developer. This is my first group project. I love food and I love
+                    planning so this was the best idea we come up with - "planning for life".  I am so excited
+                    about this to be presented and want to thank everyone and my team especially!
+                  </p>
+                  </div>
+              </div>
+          </div>
+          <div class="container">
+              <div class="inner-container">
+                  <div class="content">
+                        <div class="location">
+                                <img class="picture" src="images/patrick-moore.jpg"/>
+                              </div>
+                  <h1>Patrick Moore</h1>
+                    <p>Hello All! My name is Patrick Moore and I am a full-stack developer.
+                      I was very grateful for the hard work from my team. I helped in many different 
+                      ways but I was mainly responsible for the calendar page as well as some of the 
+                      functionality and styling of the rest of our application. I hope this app can help
+                      you find some new food and maybe give you some ideas as well.
+                    </p>
+                  </div>
+              </div>
+          </div>
+</body>
+<footer><a href="https://www.digitalcrafts.com/">Contact Us</a></footer>
+</html>

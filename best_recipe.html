@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Plan your Meal</title>
+    <link href="https://fonts.googleapis.com/css?family=Courgette|Turret+Road:700|Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link type="text/css" media="print" />
+    <style>
+        * {
+    box-sizing: border-box;
+}
+body {
+    background-image: url("images/fullSize.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100vh;
+    width:100%;
+    
+}
+
+img {
+    width: 350px;
+    height: auto;
+    padding: 30px;
+}
+
+header, footer {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 6vh;
+    margin: 0;
+    color: red;
+    font-family: 'Turret Road', cursive;
+    font-size: 33px;
+}
+.modal-content {
+    width: 700px;
+    height: auto;
+}
+
+
+header
+{
+    position:fixed;
+    top:0;
+}
+
+footer
+{
+    position:fixed;
+    padding: 0 11px;
+    bottom:0;
+    color: white;
+}
+
+a,
+a:hover,
+a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+.main {    
+    height: 86vh;
+    width:100%;
+    text-align: center;
+}
+
+.nav-link,
+.nav-link:hover, 
+.nav-link:focus {
+    color: white;
+}
+button {
+    display: inline-block;
+    margin: 10px;
+}
+.quoteDay{
+    color: white;
+    margin-top: 20px;
+}
+.quoteBox {
+    background-color: rgba(0,0,0,0.5);
+    margin: 0 30% 0 30%;
+    padding: 0px 20px 0px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 25px;
+    width: 50%;
+    height:auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+
+#quotes {
+    font-family: 'Courgette', cursive;
+    color: turquoise;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #4ca746;
+    color: white;
+}
+
+.modal-body {
+    padding: 2px 16px;
+    background-image: url("../images/calendar-background-original.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+}
+
+.modal-footer {
+  display:flex;
+    padding: 2px 16px;
+    background-color: #4ca746;
+    color: white;
+    justify-content: center;
+}
+@media only screen and (max-width: 600px) {
+ h3{
+     font-size:13px;
+ }
+ .quoteBox{
+     margin-top:0;
+     margin-bottom:20px;
+     margin-left:0;
+     margin-right:0;
+ }
+ #author{
+     margin:0;
+ }
+ .nav-link{
+     font-size:15px;
+ }
+ footer{
+     height:30px;
+     margin-top:10px;
+     padding-top:5px;
+     font-size:15px;
+ }
+}
+@media only screen and (min-width: 601px) {
+    .quoteBox{
+     margin-top:0;
+     margin-bottom:20px;
+     margin-left:0;
+     margin-right:0;
+ }
+ #author{
+     margin:0;
+ }
+}
+@media only screen and (max-width: 400px) {
+html{
+    margin-right:0!important;
+    padding:0!important;
+}
+#logo{
+    padding:0px;
+}
+ h3{
+     font-size:11px;
+ }
+ h5{
+     padding:0;
+ }
+ 
+ #author{
+     font-size:10px;
+ }
+ .quoteBox{
+    
+     margin-top:0;
+     margin-bottom:50px!important;
+     margin-left:30px;
+     margin-right:30px;
+ }
+ /* .modal{
+     width:100%;
+     height:75%;
+ } */
+ .modal-content{
+     width:100%;
+     height:100vh;
+     
+ }
+ .modal-body > p{
+    font-size: 20px!important;
+ }
+ .modal-body{
+     width: 100%;
+     height: 110%;
+ }
+ .modal-body > img{
+     width: 150px!important;
+     height: 150px!important;
+ }
+ h2{
+     font-size: 15px !important;
+ }
+ #author{
+     margin:0;
+ }
+ .nav-link{
+     font-size:15px;
+ }
+ .scale{
+     top: -50px !important;
+     width:108% !important;
+     padding-bottom:10px!important;
+     height:40vh     
+ }
+ .day{
+     top: -20px !important;
+
+ }
+ 
+ footer{
+     height:30px;
+     margin-top:10px;
+     padding-top:5px;
+     font-size:15px;
+ }}
+
+    </style>
+
+    <body>
+        <header> 
+                <nav class="nav">
+                        <a class="nav-link active" href="best_recipe.html">Home</a>
+                        <a class="nav-link" href="aboutUs.html">About Us</a>
+                        <a class="nav-link" href="menuBox.html">Menu</a>
+                      </nav>
+            
+            
+           </header>
+           
+           <div class="main">
+                <img id="logo" src="images/plan-ahead-logo.png"/>
+                <div>
+                        <button type="button" class="btn btn-secondary btn-lg btn-success"><a href="calendar.html">For the Week</a></button>
+                        <div class="day">
+                            <div class="bckgrd">
+                                <div></div>
+                                <!-- Trigger/Open The Modal -->
+                                <button href="#today" class="btn btn-primary btn-lg btn-success modal-button" >For Today</button>
+                            </div></button>
+                            <div class = "quoteBox">
+                                    <quotes class= "quoteDay" id="quotes"></quotes>
+                                    <author class= "quoteDay" id="author"></author>
+                            </div>
+                              </div>
+                              <div></div>
+                            </div> 
+                            <!-- The Modal -->
+                            <div id="today" class="modal">
+                              <!-- Modal content -->
+                              <div class="modal-content">
+
+                                <div id="modalHeader" class="modal-header">
+                                  <span class="close">×</span>
+                                </div>
+                                <div id="modalBody" class="modal-body">
+                                    <div id="recipeIng"></div>
+                                    <div id="instructions"></div>
+                                </div>
+                                
+                                <div id="modalFooter" class="modal-footer">
+                                  <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                </div>
+            </div>
+        
+          <footer><a href="https://www.digitalcrafts.com/">Contact Us</a></footer>
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+     src="https://code.jquery.com/jquery-3.4.1.min.js"
+     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+     crossorigin="anonymous"></script>
+    <script>
+      // Get the button that opens the modal
+var btn = document.querySelectorAll("button.modal-button");
+
+// All page modals
+var modals = document.querySelectorAll('.modal');
+
+// Get the <span> element that closes the modal
+var spans = document.getElementsByClassName("close");
+
+// When the user clicks the button, open the modal
+for (var i = 0; i < btn.length; i++) {
+btn[i].onclick = function(e) {
+    e.preventDefault();
+    modal = document.querySelector(e.target.getAttribute("href"));
+    modal.style.display = "block";
+}
+}
+
+// When the user clicks on <span> (x), close the modal
+for (var i = 0; i < spans.length; i++) {
+spans[i].onclick = function() {
+    for (var index in modals) {
+      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+    }
+}
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+    for (var index in modals) {
+      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+    }
+    }
+}
+    $.ajax({
+    type: "GET",
+    url: "http://quotes.rest/qod.json?category=inspire",
+    dataType: "JSON",
+    success: function(response){
+    //   var dailyQuote=(response.contents.quotes[0]);
+    //   return dailyQuote;
+    console.log(response);
+    text(response.contents.quotes[0].quote, response.contents.quotes[0].author);
+    },
+    error: function(error){
+      console.log("Error: " + error);
+    }
+   });
+ 
+
+  function text(argument,argument1){
+ var heading=$("<h3/>").text(' " ' + argument + ' \" ');
+ $("#quotes").append(heading);
+ var author=$("<h5/>").text(argument1);
+ $("#author").append(author);
+  }
+
+  $.ajax({
+    type: "GET",
+    url: "https://www.themealdb.com/api/json/v1/1/random.php",
+    dataType: "JSON",
+    success: function(response){
+    console.log(response);
+    pickedData(response, modalHeader, recipeIng, instructions, modalBody);
+    },
+    error: function(error){
+      console.log("Error: " + error);
+    }
+    });
+    function pickedData(response, headerId, ingId, instructionId, bodyId){
+    var meal = response.meals[0];
+    var mealTitle = meal.strMeal;
+    var mealInstructions = meal.strInstructions;
+    var mealImage = meal.strMealThumb;
+    var mealIngs = [meal.strMeasure1 + " " + meal.strIngredient1, meal.strMeasure2 + " " + meal.strIngredient2, meal.strMeasure3 + " " + meal.strIngredient3, 
+      meal.strMeasure4 + " " + meal.strIngredient4, meal.strMeasure5 + " " + meal.strIngredient5, meal.strMeasure6 + " " + meal.strIngredient6, meal.strMeasure7 + " " + meal.strIngredient7,
+      meal.strMeasure8 + " " + meal.strIngredient8, meal.strMeasure9 + " " + meal.strIngredient9, meal.strMeasure10 + " " + meal.strIngredient10, meal.strMeasure11+ " " + meal.strIngredient11,
+      meal.strMeasure12+ " " + meal.strIngredient12, meal.strMeasure13 + " " + meal.strIngredient13, meal.strMeasure14 + " " + meal.strIngredient14, meal.strMeasure15 + " " + meal.strIngredient15,
+      meal.strMeasure16 + " " + meal.strIngredient16, meal.strMeasure17 + " " + meal.strIngredient17, meal.strMeasure18 + " " + meal.strIngredient18, meal.strMeasure19 + " " + meal.strIngredient19,
+      meal.strMeasure20 + " " + meal.strIngredient20]
+    mealIngs.forEach(function(item){
+      if(item != Boolean || item == null || item === " "){
+        mealIngs.pop(item);
+        return mealIngs
+      }
+      return mealIngs
+    })
+    mealIngsFiltered = mealIngs.filter(Boolean)
+    console.log(mealIngsFiltered)
+    var meal=$(headerId).text(mealTitle);
+    $(headerId).append(meal);
+    var recipe =$(instructionId).text(mealInstructions);
+    $(instructionId).append(recipe);
+    var ings = document.createElement("ul");
+    $(ingId).append(ings)
+    for(var i = 0; i < mealIngs.length; i++){
+      var listedIng = document.createElement("li");
+      $(ings).append(listedIng.innerHTML="<li>" + mealIngsFiltered[i] + "</li>")
+    }
+    var image = document.createElement("img");
+    $(bodyId).append(image.innerHTML="<img src=" + mealImage + "></img>")
+  }
+
+    </script>
+</html>

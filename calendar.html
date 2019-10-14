@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weekly Meal Planner</title>
+</head>
+  <link href="https://fonts.googleapis.com/css?family=Courgette|Turret+Road:700|Vibes&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link type="text/css" media="print" />
+  <style>
+  * {
+    box-sizing: border-box;
+}
+
+a,
+a:hover,
+a:focus {
+    color: white;
+    text-decoration: none;
+}
+
+html{
+    display: flex;
+    height: 98vh;
+    flex-direction: column;
+}
+
+body {
+    
+    background-image: url("images/fullSize.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 100%;
+}
+
+
+h2 {
+    display:flex;
+    color: white;
+    justify-content: center;
+}
+
+p {
+    color: white;
+}
+
+button {
+    padding: 15px;
+    color: white;
+    background-color: #4ca746;
+    border-radius: 5px;
+    justify-content: center !important;
+}
+
+
+img {
+    width: 350px;
+    height: auto;
+    padding: 30px;
+}
+
+header, footer {
+    /* display: flex; */
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 6vh;
+    margin: 0;
+    /* padding: 10px; */
+    font-family: 'Turret Road', cursive;
+    font-size: 33px;
+    /* justify-items: space-around; */
+}
+header
+{
+  display: flex;
+  position:fixed;
+  top:0;
+  margin: 0;
+  padding: 0;
+  justify-items: space-around;
+}
+footer
+{
+   position:fixed;
+   bottom:0;
+   margin: 0;
+   padding: 5px 0px 45px 10px !important;
+}
+.nav-link,
+.nav-link:hover,
+.nav-link:focus {
+   display: inline-flex;
+   padding: 5px 9px;
+   color: white;
+   text-decoration: none;
+}
+
+.container{
+    width:75%;
+    height: 86vh;
+}
+.bckgrd {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 30px;
+    width: auto;
+    background-color: rgb(68, 116, 148);
+    width: 50%;
+    padding:10px;
+    justify-content: center;
+}
+
+.day {
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.day:nth-last-child(){
+    margin: 10px;
+    display:flex;
+    justify-content: center;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.8); /* Black w/ opacity */
+    font-family: 'Turret Road', cursive;
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+    font-family: 'Turret Road', cursive;
+}
+
+.modal-content {
+    width: 700px;
+    height: auto;
+}
+
+#bodyId{
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #4ca746;
+    color: white;
+}
+
+.modal-body {
+    display:flex;
+    padding: 2px 16px;
+    flex-direction: column;
+
+}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #4ca746;
+    color: white;
+    text-align: center;
+}
+
+#myModalImage1,
+#myModalImage2,
+#myModalImage3,
+#myModalImage4,
+#myModalImage5,
+#myModalImage6,
+#myModalImage7 {
+    display: flex;
+    justify-content: center;
+}
+
+@media print { 
+  body {visibility:hidden;}
+  .print, .modal {visibility:visible;}
+}
+
+@media only screen and (max-width: 645px){
+  .nav-link,
+  .nav-link:focus,
+  .nav-link:hover{
+    margin:0;
+    
+  }
+  p{
+    font-size:11px;
+    padding:0px;
+  }
+  img{
+    width:100px;
+    height:auto;
+  }
+  footer{
+    font-size:20px;
+  }
+  .nav-link {
+    font-size: 20px;
+  }
+  header{
+    padding:0px;
+
+  }
+  
+}
+@media only screen and (max-width: 935px){
+  .nav-link,
+  .nav-link:focus,
+  .nav-link:hover{
+    margin:0;
+    
+  }
+  p{
+    font-size:11px;
+    padding:0px;
+  }
+  img{
+    width:250px;
+    height:auto;
+  }
+  footer{
+    font-size:30px;
+  }
+  .nav-link {
+    font-size: 30px;
+  }
+  header{
+    padding:0px;
+
+  }
+}
+
+  </style>
+  <body>
+      <header> 
+          <nav class="nav">
+                  <a class="nav-link active" href="best_recipe.html">Home</a>
+                  <a class="nav-link" href="aboutUs.html">About Us</a>
+                  <a class="nav-link" href="menuBox.html">Menu</a>
+                </nav>
+      
+      
+     </header>
+  <div class="container">
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader1"></h2>
+          <div id="myModalImage1"></div>
+          <!-- Trigger/Open The Modal -->
+          <button id="myModalButton1" class="modal-button" href="#myModal1">Recipe 1</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal1" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader1" id="recipes1"></h2>
+          </div>
+          <div id="myModalBody1" class="modal-body">
+            <div id="recipeIng1"></div>
+            <div id="instructions1"></div>
+          </div>
+          <div id="myModalFooter1" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print(myModal1);" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader2"></h2>
+          <div id="myModalImage2"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal2">Recipe 2</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal2" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader2" id="recipes2"></h2>
+          </div>
+          <div id="myModalBody2" class="modal-body">
+              <div id="recipeIng2"></div>
+              <div id="instructions2"></div>
+          </div>
+          <div id="myModalFooter2" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader3"></h2>
+          <div id="myModalImage3"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal3">Recipe 3</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal3" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader3" id="recipes3"></h2>
+          </div>
+          <div id="myModalBody3" class="modal-body">
+              <div id="recipeIng3"></div>
+              <div id="instructions3"></div>
+          </div>
+          <div id="myModalFooter3" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+   
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader4"></h2>
+          <div id="myModalImage4"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal4">Recipe 4</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal4" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader4" id="recipes4"></h2>
+          </div>
+          <div id="myModalBody4" class="modal-body">
+              <div id="recipeIng4"></div>
+              <div id="instructions4"></div>
+          </div>
+          <div id="myModalFooter4" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader5"></h2>
+          <div id="myModalImage5"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal5">Recipe 5</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal5" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader5" id="recipes5"></h2>
+          </div>
+          <div id="myModalBody5" class="modal-body">
+              <div id="recipeIng5"></div>
+              <div id="instructions5"></div>
+          </div>
+          <div id="myModalFooter5" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader6"></h2>
+          <div id="myModalImage6"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal6">Recipe 6</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal6" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader6" id="recipes6"></h2>
+          </div>
+          <div id="myModalBody6" class="modal-body">
+              <div id="recipeIng6"></div>
+              <div id="instructions6"></div>
+          </div>
+          <div id="myModalFooter6" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="day">
+      <div class="bckgrd">
+        <div>
+          <h2 id="myModalHeader7"></h2>
+          <div id="myModalImage7"></div>
+          <!-- Trigger/Open The Modal -->
+          <button class="modal-button" href="#myModal7">Recipe 7</button>
+        </div>
+        <div></div>
+      </div> 
+      <!-- The Modal -->
+      <div id="myModal7" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <span class="close">×</span>
+            <h2 id="myModalHeader7" id="recipes7"></h2>
+          </div>
+          <div id="myModalBody7" class="modal-body">
+              <div id="recipeIng7"></div>
+              <div id="instructions7"></div>
+          </div>
+          <div id="myModalFooter7" class="modal-footer">
+              <a title="print screen" alt="print screen" onclick="window.print();" target="_blank" style="cursor:pointer;">print</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+     src="https://code.jquery.com/jquery-3.4.1.min.js"
+     integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+     crossorigin="anonymous"></script>
+    <script>
+    // Get the button that opens the modal
+var btn = document.querySelectorAll("button.modal-button");
+
+// All page modals
+var modals = document.querySelectorAll('.modal');
+
+// Get the <span> element that closes the modal
+var spans = document.getElementsByClassName("close");
+
+// When the user clicks the button, open the modal
+for (var i = 0; i < btn.length; i++) {
+btn[i].onclick = function(e) {
+    e.preventDefault();
+    modal = document.querySelector(e.target.getAttribute("href"));
+    modal.style.display = "block";
+}
+}
+
+// When the user clicks on <span> (x), close the modal
+for (var i = 0; i < spans.length; i++) {
+spans[i].onclick = function() {
+    for (var index in modals) {
+      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+    }
+}
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+    for (var index in modals) {
+      if (typeof modals[index].style !== 'undefined') modals[index].style.display = "none";    
+    }
+    }
+}
+
+
+
+$.ajax({
+  type: "GET",
+  url: "https://www.themealdb.com/api/json/v1/1/search.php?s",
+  dataType: "JSON",
+  success: function(response){
+  console.log(response);
+  pickedData(response, myModalHeader1, recipeIng1, instructions1, myModalImage1);
+  pickedData(response, myModalHeader2, recipeIng2, instructions2, myModalImage2);
+  pickedData(response, myModalHeader3, recipeIng3, instructions3, myModalImage3);
+  pickedData(response, myModalHeader4, recipeIng4, instructions4, myModalImage4);
+  pickedData(response, myModalHeader5, recipeIng5, instructions5, myModalImage5);
+  pickedData(response, myModalHeader6, recipeIng6, instructions6, myModalImage6);
+  pickedData(response, myModalHeader7, recipeIng7, instructions7, myModalImage7);
+  },
+  error: function(error){
+    console.log("Error: " + error);
+  }
+  });
+  var randomNums = [];
+    while(randomNums.length < 7){
+      var generateNum = Math.floor(Math.random()* 25);
+      if (randomNums.indexOf(generateNum) === - 1) randomNums.push(generateNum);
+    }
+  console.log(randomNums)
+  var currentIndex = function(arr){
+    var randomNum = arr.pop();
+    return randomNum
+  }
+  function pickedData(response, headerId, ingId, instructionId, imageId){
+    var meal = response.meals[currentIndex(randomNums)];
+    var mealTitle = meal.strMeal;
+    var mealInstructions = meal.strInstructions;
+    var mealImage = meal.strMealThumb;
+    var mealIngs = [meal.strMeasure1 + " " + meal.strIngredient1, meal.strMeasure2 + " " + meal.strIngredient2, meal.strMeasure3 + " " + meal.strIngredient3, 
+      meal.strMeasure4 + " " + meal.strIngredient4, meal.strMeasure5 + " " + meal.strIngredient5, meal.strMeasure6 + " " + meal.strIngredient6, meal.strMeasure7 + " " + meal.strIngredient7,
+      meal.strMeasure8 + " " + meal.strIngredient8, meal.strMeasure9 + " " + meal.strIngredient9, meal.strMeasure10 + " " + meal.strIngredient10, meal.strMeasure11+ " " + meal.strIngredient11,
+      meal.strMeasure12+ " " + meal.strIngredient12, meal.strMeasure13 + " " + meal.strIngredient13, meal.strMeasure14 + " " + meal.strIngredient14, meal.strMeasure15 + " " + meal.strIngredient15,
+      meal.strMeasure16 + " " + meal.strIngredient16, meal.strMeasure17 + " " + meal.strIngredient17, meal.strMeasure18 + " " + meal.strIngredient18, meal.strMeasure19 + " " + meal.strIngredient19,
+      meal.strMeasure20 + " " + meal.strIngredient20]
+    mealIngs.forEach(function(item){
+      if(item != Boolean || item == null || item === " "){
+        mealIngs.pop(item);
+        return mealIngs
+      }
+      return mealIngs
+    })
+    mealIngsFiltered = mealIngs.filter(Boolean)
+    console.log(mealIngsFiltered)
+    var meal=$(headerId).text(mealTitle);
+    $(headerId).append(meal);
+    var recipe =$(instructionId).text(mealInstructions);
+    $(instructionId).append(recipe);
+    var ings = document.createElement("ul");
+    $(ingId).append(ings)
+    for(var i = 0; i < mealIngs.length; i++){
+      var listedIng = document.createElement("li");
+      $(ings).append(listedIng.innerHTML="<li>" + mealIngsFiltered[i] + "</li>")
+    }
+    var image = document.createElement("img");
+    $(imageId).append(image.innerHTML="<img src=" + mealImage + "></img>")
+  }
+    </script>
+    <footer><a href="https://www.digitalcrafts.com/">Contact Us</a></footer>
+  </body>
+  
+</html>
